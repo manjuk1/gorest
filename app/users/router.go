@@ -12,6 +12,8 @@ func BuildRoutes(router *gin.Engine){
 	userGrp := router.Group("/api/v1/users")
 	{
 		userGrp.POST("/", api.createUser)
+		userGrp.GET("/:id", api.showUser)
+		userGrp.POST("/login", api.loginUser)
 	}
 
 }

@@ -28,6 +28,22 @@ func (s *UserModelValidator) Bind(c *gin.Context) error {
 	}
 	s.userModel.UserName = s.User.UserName
 	s.userModel.Email = s.User.Email
-	s.userModel.PasswordHash = s.User.PasswordHash
+	s.userModel.SetPassword(s.User.PasswordHash)
+	return nil
+}
+
+type LoginValidator struct {
+	User struct {
+		Email        string  `json:"email" binding:"exists,required"`
+		Password 	 string  `json:"password" binding:"exists,required"`
+	} `json:"user"`
+	userDetails User `json:"-"`
+}
+
+func (v *LoginValidator) Bind(c *gin.Context) error {
+	err := common.Bind(c, v)
+	if err != nil {
+		return err
+	}
 	return nil
 }
