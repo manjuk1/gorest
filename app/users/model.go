@@ -8,12 +8,12 @@ import (
 
 type User struct {
 	gorm.Model
-	UserName     string  `gorm:"column:username"`
-	Email        string  `gorm:"column:email;unique_index"`
-	PasswordHash string  `gorm:"column:password_digest;not null"`
+	UserName     string `gorm:"column:username"`
+	Email        string `gorm:"column:email;unique_index"`
+	PasswordHash string `gorm:"column:password_digest;not null"`
 }
 
-func(u *User) SetPassword(password string) error{
+func (u *User) SetPassword(password string) error {
 	if len(password) == 0 {
 		return errors.New("password should not be empty!")
 	}

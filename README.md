@@ -6,6 +6,7 @@ Postgres DB
 Dep for dependecy management
 Viper for configuration management
 dlv debug
+jwt-go
 
 Dep init
 dep ensure

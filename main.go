@@ -19,12 +19,11 @@ func Migrate(db *gorm.DB) {
 	// db.AutoMigrate(&articles.CommentModel{})
 }
 
-
 func main() {
 	fmt.Println("Starting to build a REST API")
 	dbConn := db.Init()
 	Migrate(dbConn)
-	fmt.Errorf("DBconnected %v",  dbConn.Error)
+	fmt.Errorf("DBconnected %v", dbConn.Error)
 	router := gin.Default()
 	createRoutes(router)
 	router.Run()
