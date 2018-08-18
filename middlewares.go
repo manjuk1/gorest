@@ -5,7 +5,7 @@ import (
 	"github.com/dgrijalva/jwt-go/request"
 	"github.com/gin-gonic/gin"
 	"github.com/manjuk1/gorest/app/users"
-	"github.com/manjuk1/gorest/common"
+	"github.com/manjuk1/gorest/config"
 	"github.com/manjuk1/gorest/db"
 	"net/http"
 	"strings"
@@ -39,7 +39,7 @@ func AuthenticateRequests(auth bool) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		SetCurrentUserContext(c, 0)
 		token, err := request.ParseFromRequest(c.Request, JwtTokenExtractor, func(token *jwt.Token) (interface{}, error) {
-			b := ([]byte(common.TokenSecret))
+			b := ([]byte(config.Settings.Token))
 			return b, nil
 		})
 		if err != nil {

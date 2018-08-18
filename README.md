@@ -1,16 +1,24 @@
 # REST API's with Go
 
+Libraries and its purpose:
 Gin-Gonic
 Gorm
 Postgres DB
 Dep for dependecy management
-Viper for configuration management
+Viper for configuration management - envprefix - PREFIX_NAME in env!!!
 dlv debug
-jwt-go
+jwt-go 
+
+Directory Structure:
+Lessons learnt!!!
+
 
 Dep init
 dep ensure
 
+API's built:
+
+Public API
 POST http://localhost:8080/api/v1/users
 
 Request Body:

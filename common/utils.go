@@ -6,6 +6,7 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
+	"github.com/manjuk1/gorest/config"
 	"gopkg.in/go-playground/validator.v8"
 	"time"
 )
@@ -47,15 +48,12 @@ func Bind(c *gin.Context, obj interface{}) error {
 	return c.ShouldBindWith(obj, b)
 }
 
-// These two configs should go to environment variables
-const TokenSecret = "A String Very Very Very Strong!!@##$!@#$"
-
 func GenToken(id uint) string {
 	jwt_token := jwt.New(jwt.GetSigningMethod("HS256"))
 	jwt_token.Claims = jwt.MapClaims{
 		"id":  id,
 		"exp": time.Now().Add(time.Hour * 24).Unix(),
 	}
-	token, _ := jwt_token.SignedString([]byte(TokenSecret))
+	token, _ := jwt_token.SignedString([]byte(config.Settings.Token))
 	return token
 }
