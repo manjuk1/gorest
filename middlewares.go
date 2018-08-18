@@ -19,9 +19,7 @@ func SetCurrentUserContext(c *gin.Context, curr_user_id uint) {
 	c.Set("current_user", currUser)
 }
 
-// Strips 'Bearer ' prefix from token string
 func stripBearerPrefixFromTokenString(tok string) (string, error) {
-	// Should be a bearer token
 	if len(tok) > 7 && strings.ToUpper(tok[0:7]) == "BEARER " {
 		return tok[7:], nil
 	}
