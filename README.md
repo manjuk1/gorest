@@ -38,13 +38,13 @@ Following are the libraries used in this project
 > ### Domain based structuring
 
 1. Go with domain based structuring only if we are sure that there cannot be interdependency between domains. It could lead to cirular imports if any dependecy arises.
-2. Real world problems has depenedency between the domains. Ex: Get the number of orders placed by the users. In this case, User and Order domains are interdepndent. This leads to bottleneck in domain based structuring.
-3. Code readabilty with domain based structuring. Ex: users.User to access User model, users.Create for creat user end point.
+2. Real world problems has depenedency between the domains. Ex: Get the number of orders placed by the users. In this case, User and Order domains are interdependent. This leads to bottleneck in domain based structuring.
+3. Code readabilty with domain based structuring. Ex: users.User to access User model, users.Create for create user end point.
 
 >  ### Rails style structuring
 1. Rails style structuring solves problem mentioned with domain based structuring.
-2. Models, views and controllers packages contains the code for all the model, view and controller respectively.
-3. Code deadability with Rails style structuring. Ex: controllers.CreateUser for create user, models.User to access User model 
+2. Models, views and controllers packages contains the code for all the models, views and controllers respectively.
+3. Code deadability with Rails style structuring. Ex: controllers.CreateUser for create user, models.User to access User model. 
 
 # API's
 
@@ -138,3 +138,25 @@ Response:
 }
 
 ```
+
+# Getting Started
+
+### 1. Clone the repo.
+
+### 2. Install and configure golang.
+https://golang.org/doc/install
+
+### 3. Install dep, a dependency mangement tool for go.
+https://github.com/golang/dep
+```
+To get all the dependent packages.
+$ dep ensure 
+```
+### 4. In project root directory.
+```
+$ go install
+$ $GOPATH/bin/gorest to run the server
+```
+### 5. Hit the end points to see them in action.
+
+# Welcome to Golang !!! Happy Coding :)
