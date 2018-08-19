@@ -44,7 +44,7 @@ Following are the libraries used in this project
 >  ### Rails style structuring
 1. Rails style structuring solves problem mentioned with domain based structuring.
 2. Models, views and controllers packages contains the code for all the models, views and controllers respectively.
-3. Code deadability with Rails style structuring. Ex: controllers.CreateUser for create user, models.User to access User model. 
+3. Code readability with Rails style structuring. Ex: controllers.CreateUser for create user, models.User to access User model. 
 
 # API's
 
